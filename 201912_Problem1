@@ -1,0 +1,35 @@
+/*
+https://e-tutor.itsa.org.tw/e-Tutor/mod/programming/view.php?a=30327
+Problem 1. 電話費計算
+*/
+#include<iostream>
+using namespace std;
+
+int main(){
+	double n,i,o;
+	cin >> n;
+	
+	while(n--){
+		cin >> i >> o;
+		double sum = 0;
+		
+		if(i<=300)
+			sum += 3*i;
+		else if(i<=500 && i>300)
+			sum += 3*i*0.9;
+		else if(i<=1000 && i>500)
+			sum += 3*i*0.75;
+		else if(i>1000)
+			sum += 3*i*0.5;
+		
+		if(o<=500)
+			sum += 6*o;
+		else if(o<=1000 && o>500)
+			sum += 6*o*0.9;
+		else if(o>1000)
+			sum += 6*o*0.75;
+		cout << (int)sum << endl;
+	}
+	
+	return 0;
+} 
