@@ -1,0 +1,24 @@
+/*
+https://e-tutor.itsa.org.tw/e-Tutor/mod/programming/view.php?id=52353
+Problem 4. 找零錢
+*/
+#include<iostream>
+using namespace std;
+
+int main(){
+	int n,m;
+	cin >> n;
+	while(n--){
+		cin >> m;
+		int zhaoqian = 1000 - m;
+		int a = zhaoqian/500,
+			b = (zhaoqian%500)/100,
+			c = ((zhaoqian%500)%100)/50,
+			d = (((zhaoqian%500)%100)%50)/10,
+			e = ((((zhaoqian%500)%100)%50)%10)/5,
+			f = ((((zhaoqian%500)%100)%50)%10)%5;
+		
+		cout << c + d + e + f << endl << a << " " << b << " " << c << " " << d << " " << e << " " << f << endl;
+	} 
+	return 0;
+} 
