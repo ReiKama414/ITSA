@@ -1,0 +1,64 @@
+/*
+https://e-tutor.itsa.org.tw/e-Tutor/mod/programming/view.php?id=52354
+Problem 5. 分數計算
+*/
+
+#include<iostream>
+using namespace std;
+
+int GCD(int a, int b){
+    if(b == 0)
+        return a;
+    return GCD(b,a % b);
+}
+
+int main(){
+	int n,x[2],y[2];
+	cin >> n;
+	
+	while(n--){
+		cin >> x[0];cin.ignore(1,'/');
+		cin >> x[1];cin.ignore(1,',');
+		cin >> y[0];cin.ignore(1,'/');
+		cin >> y[1];
+		int jia[2],jian[2],cheng[2],chu[2];
+		
+		jia[0] = x[0]*y[1] + y[0]*x[1];
+		jia[1] = x[1]*y[1];
+		int jiaGCD =  GCD(jia[0],jia[1]);
+		if(jiaGCD != 1){
+			jia[0] /= jiaGCD;
+			jia[1] /= jiaGCD;
+		}
+		cout << jia[0] << "/" << jia[1] << endl;
+		
+		jian[0] = x[0]*y[1] - y[0]*x[1];
+		jian[1] = x[1]*y[1];
+		int jianGCD =  GCD(jian[0],jian[1]);
+		if(jianGCD != 1){
+			jian[0] /= jianGCD;
+			jian[1] /= jianGCD;
+		}
+		cout << jian[0] << "/" << jian[1] << endl;
+		
+		cheng[0] = x[0]*y[0];
+		cheng[1] = x[1]*y[1];
+		int chengGCD =  GCD(cheng[0],cheng[1]);
+		if(chengGCD != 1){
+			cheng[0] /= chengGCD;
+			cheng[1] /= chengGCD;
+		}
+		cout << cheng[0] << "/" << cheng[1] << endl;
+		
+		chu[0] = x[0]*y[1];
+		chu[1] = x[1]*y[0];
+		int chuGCD =  GCD(chu[0],chu[1]);
+		if(chuGCD != 1){
+			chu[0] /= chuGCD;
+			chu[1] /= chuGCD;
+		}
+		cout << chu[0] << "/" << chu[1] << endl;
+	} 
+	
+	return 0;
+} 
